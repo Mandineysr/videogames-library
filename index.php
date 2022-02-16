@@ -43,13 +43,13 @@ if (!empty($_POST)) {
     ";
 
     if (empty($errorList)) {
-        // Si on a pas de données vides...alors on fait notre insert
+        // Si je n'ai pas de données vides...alors je fais un insert
 
         $isInserted = $pdo->exec($insertQuery);
     
         if ($isInserted !== false) {
-            // On fait une redirection propre pour éviter le bug de la double soumission de données        
-            // On repart d'une feuille blanche, sans les données qui ont été soumises avant
+            // Je fais une redirection propre pour éviter le bug de la double soumission de données        
+            // Je repars d'une feuille blanche, sans les données qui ont été soumises avant
             header('Location: index.php');
             exit();
         } else {
@@ -67,12 +67,12 @@ $sql = '
     SELECT * FROM videogame
 ';
 
-// Si un tri a été demandé, on réécrit la requête
+// Si un tri a été demandé, je réécris la requête
 
 $hasOrder = false;
 if (!empty($_GET['order'])) {
 
-    // Le tri est en place, on va pouvoir afficher le bouton "Annuler le trie"
+    // Le tri est en place, je vais pouvoir afficher le bouton "Annuler le trie"
     $hasOrder = true;
 
     // Récupération du tri choisi
