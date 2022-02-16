@@ -17,7 +17,6 @@ $errorList = [];
 if (!empty($_POST)) {
     // Récupération des valeurs du formulaire dans des variables
     $name = isset($_POST['name']) ? $_POST['name'] : '';
-
     $editor = isset($_POST['editor']) ? $_POST['editor'] : '';
     $release_date = isset($_POST['release_date']) ? $_POST['release_date'] : '';
 
@@ -27,11 +26,9 @@ if (!empty($_POST)) {
     if (empty($name)) {
         $errorList [] = 'Le nom est obligatoire';
     }
-
     if (empty($editor)) {
         $errorList [] = 'L\'éditeur est obligatoire';
     }
-
     if (empty($platform)) {
         $errorList [] = 'La plateforme est obligatoire';
     }
@@ -68,7 +65,6 @@ $sql = '
 ';
 
 // Si un tri a été demandé, je réécris la requête
-
 $hasOrder = false;
 if (!empty($_GET['order'])) {
 
@@ -77,12 +73,14 @@ if (!empty($_GET['order'])) {
 
     // Récupération du tri choisi
     // La fonction trim supprimer les espaces avant et après une chaine de caractère
+    // Tri par nom croissant
     $order = trim($_GET['order']);
     if ($order == 'name') {
         $sql = '
             SELECT * FROM videogame ORDER BY name;
         ';
     }
+    // Tri par éditeur croissant
     else if ($order == 'editor') {
         $sql = '
             SELECT * FROM videogame ORDER BY editor ASC;

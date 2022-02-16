@@ -51,7 +51,6 @@
                         <td><?= $videogame['name'] ?></td>
                         <td><?= $videogame['editor'] ?></td>
                         <td><?= $videogame['release_date'] ?></td>
-
                         <td><?= $platformList[$videogame['platform_id']] ?></td>
                     </tr>
                     <?php endforeach; ?>
